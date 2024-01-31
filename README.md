@@ -1,4 +1,6 @@
-## DEPLOY WEBSOCKETS TO HAVE ZERO DOWNTIME USING MULTIPLE COLORS
+## DEPLOY KUBERNETES WITH ZERO DOWNTIME USING MULTIPLE COLORS AND SOCKETS
+> **_NOTE:_**  You can use commit hash instead color, this is just illustrative.
+
 
 ### Deploy server
 1. You can use the image in `template.yml` or if you prefer you can build your own image using the `Dockerfile` in the `server` folder.
