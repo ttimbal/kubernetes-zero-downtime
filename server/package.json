@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js",
+    "docker:build": "docker build -t socket-server .",
+    "docker:tag": "docker tag socket-server timbal/socket-server:latest",
+    "docker:push": "docker push timbal/socket-server:latest",
+
+    "kub:deploy": "node changeColor.js && kubectl apply -f kub.yml"
+  },
+  "author": "timbal",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  }
+}

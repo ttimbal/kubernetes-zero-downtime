@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: socket-server
+spec:
+  selector:
+    app: socket-server
+    color: {{COLOR}}
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 31000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socket-server-{{COLOR}}
+  labels:
+    app: socket-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: socket-server
+  template:
+    metadata:
+      labels:
+        app: socket-server
+        color: {{COLOR}}
+    spec:
+      containers:
+      - name: socket-server
+        image: timbal/socket-server:latest
+        ports:
+        - containerPort: 3000
